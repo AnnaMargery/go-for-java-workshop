@@ -11,12 +11,19 @@ public class DepartmentDB implements DB<Department> {
 
     @Override
     public List<Department> findAll() {
-        return List.of();
+        List<Department> departments = new ArrayList<>();
+        for (Map.Entry<Id, Department> entry : departmentMap.entrySet()) {
+            Id id = entry.getKey();
+            Department department = entry.getValue();
+            departments.add(department);
+        }
+        return departments;
     }
 
     @Override
     public Optional<Department> findById(Id id) {
-        return Optional.empty();
+        Department department = departmentMap.get(id);
+        return Optional.ofNullable(department);
     }
 
     @Override

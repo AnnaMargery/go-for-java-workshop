@@ -11,12 +11,19 @@ public class EmployeeDB implements DB<Employee> {
 
     @Override
     public List<Employee> findAll() {
-        return List.of();
+        List<Employee> employees = new ArrayList<>();
+        for (Map.Entry<Id, Employee> entry : employeeMap.entrySet()) {
+            Id id = entry.getKey();
+            Employee employee = entry.getValue();
+            employees.add(employee);
+        }
+        return employees;
     }
 
     @Override
     public Optional<Employee> findById(Id id) {
-        return Optional.empty();
+        Employee employee = employeeMap.get(id);
+        return Optional.ofNullable(employee);
     }
 
     @Override
