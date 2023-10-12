@@ -2,12 +2,14 @@ package org.goforjava.domain;
 
 import org.goforjava.db.DB;
 
-import java.util.HashMap;
+import java.time.LocalDate;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
-public class WorkshopEmployeeStatsService implements EmployeeStatsService{
+public class WorkshopEmployeeStatsService implements EmployeeStatsService {
 
     private final DB<Employee> employeeDB;
     private final DB<Department> departmentDB;
@@ -19,12 +21,16 @@ public class WorkshopEmployeeStatsService implements EmployeeStatsService{
 
     @Override
     public List<Employee> findEmployeesOlderThen(long years) {
-        return List.of();
+        return employeeDB.findAll().stream()
+                .filter(employee -> LocalDate.now().getYear() - employee.getBirthDate().getYear()  > years)
+                .collect(Collectors.toList());
     }
 
     @Override
     public List<Employee> findThreeTopCompensatedEmployees() {
-        return List.of();
+       return employeeDB.findAll().stream()
+               .sorted(Comparator.comparingLong(Employee::getGrossSalary).reversed())
+               .limit(3).collect(Collectors.toList());
     }
 
     @Override
