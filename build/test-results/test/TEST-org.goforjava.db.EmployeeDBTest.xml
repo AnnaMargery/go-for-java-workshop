@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="org.goforjava.db.EmployeeDBTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2023-10-07T19:47:18" hostname="DESKTOP-AL604MQ" time="0.008">
+<testsuite name="org.goforjava.db.EmployeeDBTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2023-10-13T20:02:42" hostname="DESKTOP-AL604MQ" time="0.002">
   <properties/>
-  <testcase name="shouldFindAll()" classname="org.goforjava.db.EmployeeDBTest" time="0.001"/>
+  <testcase name="shouldFindAll()" classname="org.goforjava.db.EmployeeDBTest" time="0.0"/>
   <testcase name="shouldFindEmployeeById()" classname="org.goforjava.db.EmployeeDBTest" time="0.0"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>

@@ -56,10 +56,10 @@ public class EmployeeStatsServiceTest extends EmployeesTest {
         assertEquals("Departament Kontroli Nad Magicznymi Stworzeniami", departmentWithLowestCompensationAverage.get().getName());
     }
 
+
     @Test
     void shouldFindEmployeesBasedInGivenLocation() {
         //when
-
         var employees = employeeStatsService.findEmployeesBasedIn(Localtion.GERMANY);
 
         //then
@@ -69,6 +69,7 @@ public class EmployeeStatsServiceTest extends EmployeesTest {
         assertTrue(collectedId.contains("e11"));
         assertTrue(collectedId.contains("e22"));
     }
+
 
     @Test
     void shouldCountEmployeesByHireYear() {
